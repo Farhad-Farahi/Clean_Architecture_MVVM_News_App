@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/drawable/ic_all_news.xml" value="0.22037037037037038" />
+        <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/layout/activity_news.xml" value="0.24010416666666667" />
+        <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/layout/fragment_breaking_news.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/layout/fragment_saved_news.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/layout/fragment_search_news.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/layout/item_article_preview.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

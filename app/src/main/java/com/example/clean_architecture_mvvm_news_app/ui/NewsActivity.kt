@@ -2,7 +2,6 @@ package com.example.clean_architecture_mvvm_news_app.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.example.clean_architecture_mvvm_news_app.R
 import com.example.clean_architecture_mvvm_news_app.databinding.ActivityNewsBinding
@@ -12,9 +11,9 @@ import com.example.clean_architecture_mvvm_news_app.ui.fragments.SearchNewsFragm
 import dagger.hilt.android.AndroidEntryPoint
 
 
-private const val TAG_1_FRAGMENT = "TAG_1_FRAGMENT"
-private const val TAG_2_FRAGMENT = "TAG_2_FRAGMENT"
-private const val TAG_3_FRAGMENT = "TAG_3_FRAGMENT"
+private const val TAG_Breaking_News_FRAGMENT = "TAG_Breaking_News_FRAGMENT"
+private const val TAG_Saved_News_FRAGMENT = "TAG_Saved_News_FRAGMENT"
+private const val TAG_Search_News_FRAGMENT = "TAG_Search_News_FRAGMENT"
 private const val KEY_SELECTED_INDEX = "KEY_SELECTED_INDEX"
 
 @AndroidEntryPoint
@@ -57,17 +56,17 @@ class NewsActivity : AppCompatActivity() {
             searchNewsFragment= SearchNewsFragment()
 
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, breakingNewsFragment, TAG_1_FRAGMENT)
-                .add(R.id.fragment_container, savedNewsFragment, TAG_2_FRAGMENT)
-                .add(R.id.fragment_container, searchNewsFragment, TAG_3_FRAGMENT)
+                .add(R.id.fragment_container, breakingNewsFragment, TAG_Breaking_News_FRAGMENT)
+                .add(R.id.fragment_container, savedNewsFragment, TAG_Saved_News_FRAGMENT)
+                .add(R.id.fragment_container, searchNewsFragment, TAG_Search_News_FRAGMENT)
                 .commit()
         } else {
             breakingNewsFragment =
-                supportFragmentManager.findFragmentByTag(TAG_1_FRAGMENT) as BreakingNewsFragment
+                supportFragmentManager.findFragmentByTag(TAG_Breaking_News_FRAGMENT) as BreakingNewsFragment
             savedNewsFragment =
-                supportFragmentManager.findFragmentByTag(TAG_2_FRAGMENT) as SavedNewsFragment
+                supportFragmentManager.findFragmentByTag(TAG_Saved_News_FRAGMENT) as SavedNewsFragment
             searchNewsFragment =
-                supportFragmentManager.findFragmentByTag(TAG_3_FRAGMENT) as SearchNewsFragment
+                supportFragmentManager.findFragmentByTag(TAG_Search_News_FRAGMENT) as SearchNewsFragment
 
             selectedIndex = savedInstanceState.getInt(KEY_SELECTED_INDEX, 0)
         }

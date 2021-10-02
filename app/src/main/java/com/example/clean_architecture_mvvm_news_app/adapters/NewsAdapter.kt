@@ -54,7 +54,7 @@ class NewsAdapter(private val type: Int) : RecyclerView.Adapter<NewsAdapter.Arti
         holder.binding.apply {
 
 
-            ImageLoader.loadImageWithGlide(ivArticleImage,article.urlToImage ?: "")
+            ImageLoader.loadImageWithGlide(ivArticleImage, article.urlToImage ?: "")
 
 
 
@@ -80,8 +80,6 @@ class NewsAdapter(private val type: Int) : RecyclerView.Adapter<NewsAdapter.Arti
 
     }
 
-    //_> returns nothing
-    //https://www.youtube.com/watch?v=wGDX9zjWQzE
     private var onItemClickListener: ((Article) -> Unit)? = null
 
     fun setonItemClickListener(listener: (Article) -> Unit) {

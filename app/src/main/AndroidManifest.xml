@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Clean_Architecture_MVVM_News_App">
         <activity
-            android:name=".ui.NewsActivity"
+            android:name="com.example.clean_architecture_mvvm_news_app.presentation.ui.NewsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

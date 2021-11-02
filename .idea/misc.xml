@@ -4,8 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/drawable/ic_all_news.xml" value="0.22037037037037038" />
+        <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.2890625" />
         <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/layout/activity_news.xml" value="0.24010416666666667" />
-        <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/layout/fragment_breaking_news.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/layout/fragment_breaking_news.xml" value="0.2" />
         <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/layout/fragment_saved_news.xml" value="0.25416666666666665" />
         <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/layout/fragment_search_news.xml" value="0.25416666666666665" />
         <entry key="..\:/Projects/2021/Kotlin/EndToGithub/Clean_Architecture_MVVM_News_App/app/src/main/res/layout/item_article_preview.xml" value="0.25416666666666665" />

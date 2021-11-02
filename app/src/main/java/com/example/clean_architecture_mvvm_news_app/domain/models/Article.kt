@@ -1,4 +1,4 @@
-package com.example.clean_architecture_mvvm_news_app.models
+package com.example.clean_architecture_mvvm_news_app.domain.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

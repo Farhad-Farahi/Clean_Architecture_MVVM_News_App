@@ -1,13 +1,13 @@
-package com.example.clean_architecture_mvvm_news_app.ui
+package com.example.clean_architecture_mvvm_news_app.presentation.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.clean_architecture_mvvm_news_app.R
 import com.example.clean_architecture_mvvm_news_app.databinding.ActivityNewsBinding
-import com.example.clean_architecture_mvvm_news_app.ui.fragments.BreakingNewsFragment
-import com.example.clean_architecture_mvvm_news_app.ui.fragments.SavedNewsFragment
-import com.example.clean_architecture_mvvm_news_app.ui.fragments.SearchNewsFragment
+import com.example.clean_architecture_mvvm_news_app.presentation.ui.fragments.BreakingNewsFragment
+import com.example.clean_architecture_mvvm_news_app.presentation.ui.fragments.SavedNewsFragment
+import com.example.clean_architecture_mvvm_news_app.presentation.ui.fragments.SearchNewsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -26,7 +26,6 @@ class NewsActivity : AppCompatActivity() {
     private lateinit var breakingNewsFragment: BreakingNewsFragment
     private lateinit var savedNewsFragment: SavedNewsFragment
     private lateinit var searchNewsFragment: SearchNewsFragment
-
 
 
 

@@ -1,6 +1,6 @@
-package com.example.clean_architecture_mvvm_news_app.api
+package com.example.clean_architecture_mvvm_news_app.data.api
 
-import com.example.clean_architecture_mvvm_news_app.models.NewsResponse
+import com.example.clean_architecture_mvvm_news_app.domain.models.NewsResponse
 import com.example.clean_architecture_mvvm_news_app.utils.Constants.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

@@ -1,4 +1,4 @@
-package com.example.clean_architecture_mvvm_news_app.ui.fragments
+package com.example.clean_architecture_mvvm_news_app.presentation.ui.fragments
 
 import android.content.Intent
 import android.net.Uri
@@ -9,42 +9,46 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clean_architecture_mvvm_news_app.R
-import com.example.clean_architecture_mvvm_news_app.adapters.NewsAdapter
-import com.example.clean_architecture_mvvm_news_app.databinding.FragmentBreakingNewsBinding
-import com.example.clean_architecture_mvvm_news_app.ui.viewmodels.BreakingNewsViewModel
-import com.example.clean_architecture_mvvm_news_app.utils.Constants.QUERY_PAGE_SIZE
+import com.example.clean_architecture_mvvm_news_app.presentation.adapters.NewsAdapter
+import com.example.clean_architecture_mvvm_news_app.databinding.FragmentSearchNewsBinding
+import com.example.clean_architecture_mvvm_news_app.presentation.viewmodels.SearchNewsViewModel
+import com.example.clean_architecture_mvvm_news_app.utils.Constants
+import com.example.clean_architecture_mvvm_news_app.utils.Constants.SEARCH_NEWS_TIME_DELAY
 import com.example.clean_architecture_mvvm_news_app.utils.Constants.TYPE_SEARCH_AND_BREAKING_FRAGMENT
 import com.example.clean_architecture_mvvm_news_app.utils.Resource
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
-class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
+class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
 
 
-    private var _binding: FragmentBreakingNewsBinding? = null
+    private var _binding: FragmentSearchNewsBinding? = null
     private val binding get() = _binding!!
 
-
-    private val viewModel: BreakingNewsViewModel by viewModels()
-
+    private val viewModel: SearchNewsViewModel by viewModels()
 
     lateinit var newsAdapter: NewsAdapter
 
-    val TAG = "Error_BNF"
+    val TAG = "Error_SNF"
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentBreakingNewsBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchNewsBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -53,97 +57,102 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
         super.onViewCreated(view, savedInstanceState)
 
         setUpRv()
-
         onClick(view)
 
-        breakingNewsObserver()
 
+        search()
 
-        swipeRefreshLayoutFunctionality()
+        searchNewsObserver()
 
     }
 
-    private fun swipeRefreshLayoutFunctionality() {
-        binding.swipeRefreshLayout.setOnRefreshListener {
-            manualRefresh()
+    private fun search() {
+        var job: Job? = null
+        binding.etSearch.addTextChangedListener { editable ->
+
+            job?.cancel()
+            job = MainScope().launch {
+                delay(SEARCH_NEWS_TIME_DELAY)
+                editable?.let {
+                    if (editable.toString().trim().isNotEmpty()) {
+                        viewModel.searchNewsPage = 1
+                        viewModel.searchNewsResponse = null
+                        viewModel.searchNews(editable.toString())
+                    }
+                }
+            }
         }
+
     }
 
-    private fun breakingNewsObserver() {
-        viewModel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
 
+    private fun searchNewsObserver() {
+        viewModel.searchNews.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
-
                 is Resource.Success -> {
+                    hideProgressBar()
                     response.data?.let { newsResponse ->
-                        newsAdapter.differ.submitList(newsResponse.articles.toList()) //listDiffer cant work with MutableList
+                        newsAdapter.differ.submitList(newsResponse.articles.toList())
                         //determine for last
                         //+2 = +1 FOR rounding and another +1 because the last page of our response will always  be empty
-                        val totalPages = newsResponse.totalResults / QUERY_PAGE_SIZE + 2
-                        isLastPage = viewModel.breakingNewsPage == totalPages
+                        val totalPages = newsResponse.totalResults / Constants.QUERY_PAGE_SIZE + 2
+                        isLastPage = viewModel.searchNewsPage == totalPages
                         if (isLastPage) {
-                            binding.rvBreakingNews.setPadding(0, 0, 0, 0)
+                            binding.rvSearchNews.setPadding(0, 0, 0, 0)
                         }
                     }
-                    hideProgressBar()
                 }
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let { message ->
-                        Log.e(TAG, "an error occurred:$message")
+                        Log.e(TAG, "An error occured: $message")
                     }
                 }
                 is Resource.Loading -> {
                     showProgressBar()
                 }
             }
-
-
         })
     }
+
+
+    private fun hideProgressBar() {
+        binding.paginationProgressBar.visibility = View.GONE
+        isLoading = false
+    }
+
+    private fun showProgressBar() {
+        binding.paginationProgressBar.visibility = View.VISIBLE
+        isLoading = false
+
+    }
+
+    private fun setUpRv() {
+        newsAdapter = NewsAdapter(TYPE_SEARCH_AND_BREAKING_FRAGMENT)
+        binding.rvSearchNews.apply {
+            adapter = newsAdapter
+            layoutManager = LinearLayoutManager(activity)
+            setHasFixedSize(true)
+            addOnScrollListener(this@SearchNewsFragment.scrollListener)
+        }
+    }
+
 
     private fun onClick(view: View) {
         newsAdapter.setonItemClickListener {
             val uri = Uri.parse(it.url)
             val intent = Intent(Intent.ACTION_VIEW, uri)
             requireActivity().startActivity(intent)
-
         }
-
         newsAdapter.setOnSaveButtonClickListener { article ->
             viewModel.saveArticle(article = article)
             Snackbar.make(view, "Article saved Successfully", Snackbar.LENGTH_SHORT).show()
         }
     }
 
-    private fun hideProgressBar() {
-        binding.paginationProgressBar.visibility = View.GONE
-        isLoading = false
-        binding.swipeRefreshLayout.isRefreshing = false
-    }
-
-    private fun showProgressBar() {
-        binding.paginationProgressBar.visibility = View.VISIBLE
-        isLoading = true
-    }
-
-    private fun setUpRv() {
-        newsAdapter = NewsAdapter(TYPE_SEARCH_AND_BREAKING_FRAGMENT)
-        binding.rvBreakingNews.apply {
-            adapter = newsAdapter
-            layoutManager = LinearLayoutManager(activity)
-            setHasFixedSize(true)
-            addOnScrollListener(this@BreakingNewsFragment.scrollListener)
-        }
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-    }
-
-    private fun manualRefresh() {
-        viewModel.onManualRefresh()
     }
 
     //pagination
@@ -176,17 +185,16 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
             val isNotAtBeginning =
                 firstVisibleItemPosition >= 0 //determine if we already scrolled little bit down
             val isTotalMoreThanVisible =
-                totalItemCount >= QUERY_PAGE_SIZE //check total item is more than visible
+                totalItemCount >= Constants.QUERY_PAGE_SIZE //check total item is more than visible
             val shouldPaginate = isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning &&
                     isTotalMoreThanVisible && isScrolling
 
 
             if (shouldPaginate) {
-                viewModel.getBreakingNews("us")
+                viewModel.searchNews(binding.etSearch.text.toString().trim())
                 isScrolling = false
             }
 
         }
     }
-
 }

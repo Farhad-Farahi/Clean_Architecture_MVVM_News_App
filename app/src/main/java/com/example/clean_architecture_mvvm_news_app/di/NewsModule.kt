@@ -2,8 +2,8 @@ package com.example.clean_architecture_mvvm_news_app.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.clean_architecture_mvvm_news_app.api.NewsAPI
-import com.example.clean_architecture_mvvm_news_app.db.ArticleDataBase
+import com.example.clean_architecture_mvvm_news_app.data.api.NewsAPI
+import com.example.clean_architecture_mvvm_news_app.data.db.ArticleDataBase
 import com.example.clean_architecture_mvvm_news_app.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -34,6 +34,7 @@ object NewsModule {
         Room.databaseBuilder(app, ArticleDataBase::class.java, "news_article_database")
             .fallbackToDestructiveMigration()
             .build()
+
 
 
 }

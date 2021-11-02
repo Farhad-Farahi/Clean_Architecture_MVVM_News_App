@@ -1,8 +1,8 @@
-package com.example.clean_architecture_mvvm_news_app.repository
+package com.example.clean_architecture_mvvm_news_app.data.repository
 
-import com.example.clean_architecture_mvvm_news_app.api.NewsAPI
-import com.example.clean_architecture_mvvm_news_app.db.ArticleDataBase
-import com.example.clean_architecture_mvvm_news_app.models.Article
+import com.example.clean_architecture_mvvm_news_app.data.api.NewsAPI
+import com.example.clean_architecture_mvvm_news_app.data.db.ArticleDataBase
+import com.example.clean_architecture_mvvm_news_app.domain.models.Article
 import javax.inject.Inject
 
 

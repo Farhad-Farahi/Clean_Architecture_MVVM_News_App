@@ -1,4 +1,4 @@
-package com.example.clean_architecture_mvvm_news_app.ui.fragments
+package com.example.clean_architecture_mvvm_news_app.presentation.ui.fragments
 
 import android.content.Intent
 import android.net.Uri
@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clean_architecture_mvvm_news_app.R
-import com.example.clean_architecture_mvvm_news_app.adapters.NewsAdapter
+import com.example.clean_architecture_mvvm_news_app.presentation.adapters.NewsAdapter
 import com.example.clean_architecture_mvvm_news_app.databinding.FragmentSavedNewsBinding
-import com.example.clean_architecture_mvvm_news_app.ui.viewmodels.SavedNewsViewModel
+import com.example.clean_architecture_mvvm_news_app.presentation.viewmodels.SavedNewsViewModel
 import com.example.clean_architecture_mvvm_news_app.utils.Constants.TYPE_SAVED_FRAGMENT
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint

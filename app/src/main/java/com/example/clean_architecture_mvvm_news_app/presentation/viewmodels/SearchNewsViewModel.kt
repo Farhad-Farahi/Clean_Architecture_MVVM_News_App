@@ -1,12 +1,12 @@
-package com.example.clean_architecture_mvvm_news_app.ui.viewmodels
+package com.example.clean_architecture_mvvm_news_app.presentation.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.clean_architecture_mvvm_news_app.models.Article
-import com.example.clean_architecture_mvvm_news_app.models.NewsResponse
-import com.example.clean_architecture_mvvm_news_app.repository.NewsRepository
+import com.example.clean_architecture_mvvm_news_app.domain.models.Article
+import com.example.clean_architecture_mvvm_news_app.domain.models.NewsResponse
+import com.example.clean_architecture_mvvm_news_app.data.repository.NewsRepository
 import com.example.clean_architecture_mvvm_news_app.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -58,6 +58,4 @@ class SearchNewsViewModel @Inject constructor(private val repository: NewsReposi
     fun saveArticle(article: Article) = viewModelScope.launch {
         repository.upsert(article)
     }
-
-
 }

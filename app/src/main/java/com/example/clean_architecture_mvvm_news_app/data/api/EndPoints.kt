@@ -1,4 +1,4 @@
-package com.example.clean_architecture_mvvm_news_app.api
+package com.example.clean_architecture_mvvm_news_app.data.api
 
 object EndPoints {
 

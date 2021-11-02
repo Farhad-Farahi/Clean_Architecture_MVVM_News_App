@@ -1,4 +1,4 @@
-package com.example.clean_architecture_mvvm_news_app.data.repository
+package com.example.clean_architecture_mvvm_news_app.domain.repository
 
 import com.example.clean_architecture_mvvm_news_app.data.api.NewsAPI
 import com.example.clean_architecture_mvvm_news_app.data.db.ArticleDataBase

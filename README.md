@@ -21,6 +21,18 @@ Breaking news fragment that reads news from remote, with swip refresh capability
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 https://user-images.githubusercontent.com/55928362/140186939-ca1dc36f-b757-4f40-9163-03e390c487c5.mp4
 
 

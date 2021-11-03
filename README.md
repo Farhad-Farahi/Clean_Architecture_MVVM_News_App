@@ -25,15 +25,8 @@ Breaking news fragment that reads news from remote, with swip refresh capability
 
 
 
-
-
-
-
-
-
-
-
 https://user-images.githubusercontent.com/55928362/140186939-ca1dc36f-b757-4f40-9163-03e390c487c5.mp4
+
 
 
 
@@ -46,6 +39,7 @@ Saved news fragment that read saved news from Database and swip delete capabilit
 
 
 https://user-images.githubusercontent.com/55928362/140187107-31b8d477-5b9b-494e-9c38-6db16535f8f7.mp4
+
 
 
 

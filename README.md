@@ -5,7 +5,7 @@ To run the app get a free API key from https://newsapi.org and put it in your lo
 
 this project is fully updated by google Trends.
 
-Technology Used = MVVM - Retrofit - Coroutines - Dagger-Hilt - Room - SwipeRefreshLayout - Glide
+Technology Used = MVVM - Retrofit - Coroutines - Dagger-Hilt - Room - SwipeRefreshLayout - Glide - Smart Pagination
 
 here is some short videos :
 

@@ -17,9 +17,9 @@ import com.example.clean_architecture_mvvm_news_app.R
 import com.example.clean_architecture_mvvm_news_app.presentation.adapters.NewsAdapter
 import com.example.clean_architecture_mvvm_news_app.databinding.FragmentBreakingNewsBinding
 import com.example.clean_architecture_mvvm_news_app.presentation.viewmodels.BreakingNewsViewModel
-import com.example.clean_architecture_mvvm_news_app.utils.Constants.QUERY_PAGE_SIZE
-import com.example.clean_architecture_mvvm_news_app.utils.Constants.TYPE_SEARCH_AND_BREAKING_FRAGMENT
-import com.example.clean_architecture_mvvm_news_app.utils.Resource
+import com.example.clean_architecture_mvvm_news_app.domain.common.Constants.QUERY_PAGE_SIZE
+import com.example.clean_architecture_mvvm_news_app.domain.common.Constants.TYPE_SEARCH_AND_BREAKING_FRAGMENT
+import com.example.clean_architecture_mvvm_news_app.domain.common.Resource
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 

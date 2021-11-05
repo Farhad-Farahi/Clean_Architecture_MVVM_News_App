@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.clean_architecture_mvvm_news_app.domain.models.Article
 
-@Database(entities = [Article::class], version = 2)
+@Database(entities = [Article::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class ArticleDataBase : RoomDatabase() {
 

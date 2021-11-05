@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.clean_architecture_mvvm_news_app.domain.models.Article
 import com.example.clean_architecture_mvvm_news_app.domain.models.NewsResponse
 import com.example.clean_architecture_mvvm_news_app.domain.repository.NewsRepository
-import com.example.clean_architecture_mvvm_news_app.utils.Resource
+import com.example.clean_architecture_mvvm_news_app.domain.common.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response

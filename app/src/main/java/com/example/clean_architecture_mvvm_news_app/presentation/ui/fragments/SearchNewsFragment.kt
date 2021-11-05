@@ -18,10 +18,10 @@ import com.example.clean_architecture_mvvm_news_app.R
 import com.example.clean_architecture_mvvm_news_app.presentation.adapters.NewsAdapter
 import com.example.clean_architecture_mvvm_news_app.databinding.FragmentSearchNewsBinding
 import com.example.clean_architecture_mvvm_news_app.presentation.viewmodels.SearchNewsViewModel
-import com.example.clean_architecture_mvvm_news_app.utils.Constants
-import com.example.clean_architecture_mvvm_news_app.utils.Constants.SEARCH_NEWS_TIME_DELAY
-import com.example.clean_architecture_mvvm_news_app.utils.Constants.TYPE_SEARCH_AND_BREAKING_FRAGMENT
-import com.example.clean_architecture_mvvm_news_app.utils.Resource
+import com.example.clean_architecture_mvvm_news_app.domain.common.Constants
+import com.example.clean_architecture_mvvm_news_app.domain.common.Constants.SEARCH_NEWS_TIME_DELAY
+import com.example.clean_architecture_mvvm_news_app.domain.common.Constants.TYPE_SEARCH_AND_BREAKING_FRAGMENT
+import com.example.clean_architecture_mvvm_news_app.domain.common.Resource
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job

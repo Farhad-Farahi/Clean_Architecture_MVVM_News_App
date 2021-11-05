@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clean_architecture_mvvm_news_app.databinding.ItemArticlePreviewBinding
 import com.example.clean_architecture_mvvm_news_app.domain.models.Article
-import com.example.clean_architecture_mvvm_news_app.utils.Constants.TYPE_SAVED_FRAGMENT
-import com.example.clean_architecture_mvvm_news_app.utils.ImageLoader
+import com.example.clean_architecture_mvvm_news_app.domain.common.Constants.TYPE_SAVED_FRAGMENT
+import com.example.clean_architecture_mvvm_news_app.domain.common.ImageLoader
 
 
 class NewsAdapter(private val type: Int) : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {

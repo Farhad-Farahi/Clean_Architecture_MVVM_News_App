@@ -1,4 +1,4 @@
-package com.example.clean_architecture_mvvm_news_app.utils
+package com.example.clean_architecture_mvvm_news_app.domain.common
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

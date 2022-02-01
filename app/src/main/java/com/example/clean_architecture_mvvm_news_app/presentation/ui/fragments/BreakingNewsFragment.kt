@@ -116,7 +116,16 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
 
         newsAdapter.setOnSaveButtonClickListener { article ->
             viewModel.saveArticle(article = article)
-            Snackbar.make(view, "Article saved Successfully", Snackbar.LENGTH_SHORT).show()
+
+            val snackBar = Snackbar.make(
+                requireActivity().findViewById(android.R.id.content),
+                "Article saved Successfully",
+                Snackbar.LENGTH_SHORT
+            )
+            snackBar.setAction("OK") { // Call your action method here
+                snackBar.dismiss()
+            }
+            snackBar.show()
         }
     }
 

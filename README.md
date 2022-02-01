@@ -1,5 +1,5 @@
 # Clean_Architecture_MVVM_News_App <br />
-9/20/2021 <br />
+
 
 few updates should be done : <br />
 ~~migrate to DiffUtil~~  <br />

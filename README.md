@@ -1,14 +1,14 @@
-# Clean_Architecture_MVVM_News_App
-9/20/2021
+# Clean_Architecture_MVVM_News_App\
+9/20/2021\
 
-few updates should be done : 
-~~migrate to DiffUtil~~
-LiveData to Flow
-Adding UseCase 
-Adding BaseApiResponse
-Adding Unit Test
-Adding Advance Error Handler
-migrate to JetPackCompose
+few updates should be done : \
+~~migrate to DiffUtil~~\
+LiveData to Flow\
+Adding UseCase \
+Adding BaseApiResponse\
+Adding Unit Test\
+Adding Advance Error Handler\
+migrate to JetPackCompose\
 
 
 To run the app get a free API key from https://newsapi.org and put it in your local. properties file with the key news_api_access_key.
